@@ -60,9 +60,9 @@ window.addEventListener("load", function () {
       if(a.y <= 0 || a.y >= 500){a.vy *= -1}
     }
   };
-  yellow = create(200, "yellow");
-  red = create(200, 'red')
-  green = create(200, 'green')
+  yellow = create(300, "yellow");
+  red = create(300, 'red')
+  green = create(300, 'green')
 
   animate = () => {
     // model 1
