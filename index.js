@@ -2,8 +2,19 @@ window.addEventListener("load", function () {
   /**@type{HTMLCanvasElement} */
   const canvas = document.getElementById("canvas1");
   const ctx = canvas.getContext("2d");
+  const resetBtn = this.document.getElementById('resetBtn')
+  const randomBtn = this.document.getElementById('randomBtn')
   canvas.width = 500;
   canvas.height = 500;
+    let yy = 0.15;
+    let rr = -0.1;
+    let gg = -0.32;
+    let gr = -0.17;
+    let rg = -0.34;
+    let gy = 0.34;
+    let yg = -0.2;
+    let yr = 0;
+    let ry = 0;
 
   draw = (x, y, c, s) => {
     ctx.fillStyle = c;
@@ -62,13 +73,16 @@ window.addEventListener("load", function () {
     // rule(red, green, -0.1)
 
     // model 2
-    rule(green, green, -0.32)
-    rule(green, red, -0.17)
-    rule(green, yellow, 0.34)
-    rule(red, red, -0.10)
-    rule(red, green, -0.34)
-    rule(yellow, yellow, 0.15)
-    rule(yellow, green, -0.20)
+  
+    rule(green, green, gg)
+    rule(green, red, gr)
+    rule(green, yellow, gy)
+    rule(red, red, rr)
+    rule(red, green, rg)
+    rule(yellow, yellow, yy)
+    rule(yellow, green, yg)
+    rule(yellow, red, yr)
+    rule(red, yellow, ry)
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     for (let i = 0; i < particles.length; i++) {
       draw(particles[i].x, particles[i].y, particles[i].color, 7);
@@ -78,6 +92,22 @@ window.addEventListener("load", function () {
   };
 
   animate();
+
+  resetBtn.addEventListener('click', () => {
+    this.location.reload()
+  })
+
+  randomBtn.addEventListener('click', () => {
+     yy = (Math.random() * (1 - -1) + -1).toFixed(2);
+     rr = (Math.random() * (1 - -1) + -1).toFixed(2);
+     gg = (Math.random() * (1 - -1) + -1).toFixed(2);
+     gr = (Math.random() * (1 - -1) + -1).toFixed(2);
+     rg = (Math.random() * (1 - -1) + -1).toFixed();
+     gy = (Math.random() * (1 - -1) + -1).toFixed(2);
+     yg = (Math.random() * (1 - -1) + -1).toFixed(2);
+     yr = (Math.random() * (1 - -1) + -1).toFixed(2);
+     ry = (Math.random() * (1 - -1) + -1).toFixed(2);
+  })
 
   //load function end
 });
